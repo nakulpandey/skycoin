@@ -490,7 +490,7 @@
                         <skycoin-outputs [wallets]="wallets"></skycoin-outputs>
                     </div>
                     <div *ngIf="selectedMenu=='PendingTxns'" style="padding-top:10px">
-                    <p style="
+                        <p style="
                     display: inline-block;
                     margin-right: 20px;
                     margin-bottom: 20px;
@@ -596,18 +596,24 @@
                 <button type="button" (click)="hideLoadSeedWalletPopup()" class="close">&times;</button>
                 <h4 class="modal-title">Load wallet by seed</h4>
             </div>
-            <form class="form-horizontal" (ngSubmit)="createWalletSeed(walletname.value, walletseed.value)">
+            <form class="form-horizontal" (ngSubmit)="createWalletSeed(walletname.value, walletseed.value, addressesToCreate.value)">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Name:</label>
+                        <label class="col-sm-3 control-label">Name:</label>
                         <div class="col-sm-9">
                             <input maxlength="60" #walletname name="walletname" placeholder="Enter label for this wallet" class="form-control" required/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Seed:</label>
+                        <label class="col-sm-3 control-label">Seed:</label>
                         <div class="col-sm-9">
                             <textarea rows="4" #walletseed name="walletseed" cols="46" class="form-control" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><i class="fa fa-question-circle"></i>&nbsp;Addresses to Create:</label>
+                        <div class="col-sm-9">
+                            <input type="Number" #addressesToCreate class="form-control" value="1" required/>
                         </div>
                     </div>
                 </div>
